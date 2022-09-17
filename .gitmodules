@@ -1,0 +1,3 @@
+[submodule "themes/NewBee"]
+	path = themes/NewBee
+	url = https://github.com/xioyito/NewBee.git
