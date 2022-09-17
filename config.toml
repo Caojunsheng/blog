@@ -3,7 +3,7 @@ languageCode = 'en-us'
 
 # website title
 # 网站标题
-title = 'NewBee'
+title = 'Chenruohan个人博客'
 # theme
 # 主题
 theme = "NewBee"
@@ -181,16 +181,6 @@ hasCJKLanguage = true
         url = "/categories"
         weight = 3
         pre = "<i class='fa fa-folder-open'></i>"
-    [[menus.main]]
-        name = "系列"
-        url = "/series"
-        weight = 4
-        pre = "<i class='fa fa-gears'></i>"
-    [[menus.main]]
-        name = "标签"
-        url = "/tags"
-        weight = 5
-        pre = "<i class='fa fa-tags'></i>"        
     [[menus.main]]
         name = "关于"
         url = "/about"
