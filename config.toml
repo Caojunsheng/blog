@@ -25,14 +25,14 @@ hasCJKLanguage = true
 
 
 [author]
-    name = "xioyito"
-    description = "Be Water, My Friend."
+    name = "chenruohan"
+    description = "人生如戏，戏如人生"
     # profile photo of author in author card
     # 作者头像
     image = "/images/author.jpeg"
     # link of followme in author card and footer
     # 作者卡片里 followme 和页脚作者的链接
-    link = "https://github.com/xioyito"
+    link = "https://github.com/caojunsheng"
 
 # Taxonomies
 [taxonomies]
@@ -51,13 +51,13 @@ hasCJKLanguage = true
         homeTopImg = "/images/home.jpg"
         # title in home top image, support Markdown
         # 主页标题，支持Markdown语法
-        homeTitle = "XIOYITO"
+        homeTitle = "ChenRuoHan"
         # font size(px)
         # 主页标题字号（单位：px）
         homeTitleFontSize = 40
         # content in home top image, support Markdown
         # 主页内容，支持Markdown语法
-        homeContent = "Be Water, My Friend"
+        homeContent = "人生如戏，戏如人生"
         # font size(px)
         # 主页内容字号（单位：px）
         homeContentFontSize = 20
@@ -201,7 +201,7 @@ hasCJKLanguage = true
     # 作者卡片社交链接，最多6个
     [[menus.social]]
         name = "GitHub"
-        url = "https://github.com/xioyito"
+        url = "https://github.com/caojunsheng"
         pre = "<i class='fa fa-github'></i>"
         weight = 1
     [[menus.social]]
@@ -214,10 +214,7 @@ hasCJKLanguage = true
     # 赞赏，最多支持3个
     [[menus.appreciate]]
         name = "微信"
-        url = "/images/appreciate/Wechat.jpeg"
-    [[menus.appreciate]]
-        name = "支付宝"
-        url = "/images/appreciate/Alipay.jpeg"
+        url = "/images/appreciate/wechat.jpg"
 
 # [permalinks]
 #     posts = '/:year/:month/:title/'
