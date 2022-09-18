@@ -67,21 +67,21 @@ hasCJKLanguage = true
         categoryTopImg = "/images/categories.jpg"
         # description of categories terms page
         # 子标题
-        categoryDes = "description of categories page"
+        categoryDes = ""
 
         # top image in series terms page
         # 分类页面的顶部图
         seriesTopImg = "/images/series.jpg"
         # description of series terms page
         # 子标题
-        seriesDes = "description of series page"
+        seriesDes = ""
 
         # top image in tags terms page
         # 标签页面的顶部图
         tagTopImg = "/images/tag.jpg"
         # description of tags terms page
         # 子标题
-        tagDes = "description of tags page"
+        tagDes = ""
 
         # top image in archives(posts) page
         # 归档（所有文章）页面的顶部图
@@ -181,6 +181,17 @@ hasCJKLanguage = true
         url = "/categories"
         weight = 3
         pre = "<i class='fa fa-folder-open'></i>"
+    [[menus.main]]
+        name = "系列"
+        url = "/series"
+        weight = 4
+        pre = "<i class='fa fa-gears'></i>"
+    [[menus.main]]
+        name = "标签"
+        url = "/tags"
+        weight = 5
+        pre = "<i class='fa fa-tags'></i>"
+
     [[menus.main]]
         name = "关于"
         url = "/about"
