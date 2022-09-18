@@ -48,10 +48,10 @@ hasCJKLanguage = true
 
         # top image in home page, note that the "/" in path is necessary, the same applies below
         # 主页的顶部图，路径开头”/“是必需的。下同
-        homeTopImg = "/images/home.jpg"
+        homeTopImg = "/images/home.jpeg"
         # title in home top image, support Markdown
         # 主页标题，支持Markdown语法
-        homeTitle = "CHENRUOHAN"
+        homeTitle = "Chenruohan"
         # font size(px)
         # 主页标题字号（单位：px）
         homeTitleFontSize = 40
@@ -88,18 +88,18 @@ hasCJKLanguage = true
         archivesTopImg = "/images/archive.jpg"
         # description of archives(posts) page
         # 子标题
-        archivesDes = "description of archives(posts) page"
+        archivesDes = ""
 
         # top image in about page
         # 关于页面的顶部图
-        aboutTopImg = "/images/about.jpg"
+        aboutTopImg = "/images/about.jpeg"
         # description of about page
         # 子标题
-        aboutDes = "description of about page"
+        aboutDes = "个人工作学习记录小站"
 
         # default image for a post without "image" param
         # 当文章没有设置图片时，将用此图来替代
-        postsTopImg = "/images/default.jpg"
+        postsTopImg = "/images/default.jpeg"
         
         # 主页文章最大显示数量
         maxHomePostCount = 5
