@@ -10,7 +10,7 @@ series: ["Hugo Guide"]
 
 stackedit在弹出网页转到github授权界面的时候，弹出来了http400的错误，在你点授权之前，F12打开console，输入下边的JS code：
 
-```
+```javascript
 window.XMLHttpRequest =  class MyXMLHttpRequest extends window.XMLHttpRequest {
 open(...args){
 if(args[1].startsWith("https://api.github.com/user?access_token=")) {
@@ -39,5 +39,5 @@ else {
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3NjAwNTU0MV19
+eyJoaXN0b3J5IjpbMTY0MDA1MDcwNl19
 -->
