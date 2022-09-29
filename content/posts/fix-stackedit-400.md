@@ -1,3 +1,13 @@
+---
+title: "stackedit跳转github授权报错4"
+date: 2022-09-17T17:11:28+08:00
+description: "第一个博客，测试博客"
+draft: false
+tags: ["hugo"]
+categories: ["Build Site Guide"]
+series: ["Hugo Guide"]
+---
+
 stackedit在弹出网页转到github授权界面的时候，弹出来了http400的错误，在你点授权之前，F12打开console，输入下边的JS code：
 
 ```
@@ -29,5 +39,5 @@ else {
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MzIyNzMzMzRdfQ==
+eyJoaXN0b3J5IjpbLTIyNDA2MTAwXX0=
 -->
