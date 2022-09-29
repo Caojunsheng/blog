@@ -1,4 +1,4 @@
-stackedit在弹出网页转到github授权界面的时候，在你点授权之前，F12打开console，输入下边的JS code：
+stackedit在弹出网页转到github授权界面的时候，弹出来了http400的错误，在你点授权之前，F12打开console，输入下边的JS code：
 
 ```
 window.XMLHttpRequest =  class MyXMLHttpRequest extends window.XMLHttpRequest {
@@ -25,9 +25,9 @@ else {
 
 ```
 
-这段代码会重写stackedit的API请求，可以成功解决400的问题，成功shouquan
+这段代码会重写stackedit的API请求，可以成功解决400的问题，成功授权。
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNDEyNDM1N119
+eyJoaXN0b3J5IjpbLTE1MzIyNzMzMzRdfQ==
 -->
