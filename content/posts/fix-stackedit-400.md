@@ -1,10 +1,10 @@
 ---
-title: "stackedit跳转github授权报错4"
-date: 2022-09-17T17:11:28+08:00
-description: "第一个博客，测试博客"
+title: "stackedit跳转github授权报错400解决"
+date: 2022-09-29T15:59:28+08:00
+description: "解决stackedit跳转github授权报错400问题"
 draft: false
-tags: ["hugo"]
-categories: ["Build Site Guide"]
+tags: ["stackedit"]
+categories: ["bug fix"]
 series: ["Hugo Guide"]
 ---
 
@@ -39,5 +39,5 @@ else {
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyNDA2MTAwXX0=
+eyJoaXN0b3J5IjpbMjA3NjAwNTU0MV19
 -->
