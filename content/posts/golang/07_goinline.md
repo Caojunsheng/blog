@@ -7,15 +7,10 @@ tags: ["golang", "inline"]
 categories: ["golang"]
 series: ["golang"]
 ---
-一、什么是函数内联
-### 背景
-go语言在编译时期就会对代码中部分函数的调用进行内联，以减少函数调用所带来的开销。而热补丁修改时，其中的一个约束是对内联函数打补丁是不生效的，所以在修改热补丁时，对于一些较短的函数，我们需要能够判断该函数是否被内联了。
-![image.png](http://image.huawei.com/tiny-lts/v1/images/b2f1027bd2e31a5edb0e4a65521874aa_872x160.png@900-0-90-f.png)
-
-
-### 内联优化是什么？
+### 一、什么是函数内联
+ 内联优化是什么？
 内联(inlining)是编程语言编译器常用的优化手段，其优化的对象为函数，也称为函数内联。如果某函数F支持内联，则意味着编译器可以用F的函数体/函数定义替换掉对函数F进行调用的代码，以消除函数调用带来的额外开销，这个过程如下图所示：
-![image.png](http://image.huawei.com/tiny-lts/v1/images/1493e0a747bb2f3d26161fef9c072719_621x571.png@900-0-90-f.png)
+![image.png](https://tonybai.com/wp-content/uploads/understand-go-inlining-optimisations-by-example-2.png)
 但是内联并不是只有优点而无缺点，因为内联，其实就是将一个函数调用原地展开，替换成这个函数的实现。当该函数被多次调用，就会被多次展开，这会增加编译后二进制文件的大小。而非内联函数，只需要保存一份函数体的代码，然后进行调用。所以，在空间上，一般来说使用内联函数会导致生成的可执行文件变大。
 
 ### 如何判断函数是否支持内联
@@ -89,5 +84,5 @@ go build -gcflags="-m=2" .
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4OTA4OTY3OF19
+eyJoaXN0b3J5IjpbLTE4MDQ3MTY0NjZdfQ==
 -->
