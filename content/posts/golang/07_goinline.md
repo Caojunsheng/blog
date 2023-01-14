@@ -79,17 +79,20 @@ test.go:12:13: inlining call to fmt.Println func(...interface {}) (int, error) {
 由于go tool compile仅支持单个文件,使用go build编译一个目录查询函数是否被内联
 执行如下命令：
 ```bash
-go build -gcflags="-m=2" .
-```
-![image.png](http://image.huawei.com/tiny-lts/v1/images/6f53b53753415b4d232e895ced294295_1898x101.png@900-0-90-f.png)
-查看整个包的编译结果，我们发现函数`isFailedByRejUnspecidiedRecvByIsmf`无法被内联。我们在热补丁中可修改该函数。
-![image.png](http://image.huawei.com/tiny-lts/v1/images/123b39a288b8d9c7a691e7a9198ef3f5_1548x140.png@900-0-90-f.png)
-
-
+$ go build -gcflags="-m=2" .
+.\test.go:15:6: can inline testInline1 with cost 8 as: func(int, int) int { if a > b { return a }; return b }
+.\test.go:23:6: cannot inline testInline2: marked go:noinline
+.\test.go:30:6: cannot inline testInline3: function too complex: cost 96 exceeds budget 80
+.\test.go:32:14: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
+.\test.go:9:6: cannot inline main: function too complex: cost 359 exceeds budget 80
+.\test.go:10:25: inlining call to testInline1 func(int, int) int { if a > b { return a }; return b }
+.\test.go:10:13: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
+.\test.go:11:13: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
+.\test.go:12:13: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxNTkzNjY3NCwtMzMwMTY2OTA1LC0xOD
-A0NzE2NDY2XX0=
+eyJoaXN0b3J5IjpbMTY5MTAxNzI1MSwyMDE1OTM2Njc0LC0zMz
+AxNjY5MDUsLTE4MDQ3MTY0NjZdfQ==
 -->
