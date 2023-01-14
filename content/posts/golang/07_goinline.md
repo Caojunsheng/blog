@@ -75,14 +75,8 @@ test.go:12:13: inlining call to fmt.Println func(...interface {}) (int, error) {
 
 ```
 
-我们把该方法落到我们实际代码库上再试一下，我们以session库上smc/exec/do/internal/domain/objects/feature/perf/perfrole/perf5g/perf5gconcentrate/perfbuilder_ismf.go文件中`isFailedByRejUnspecidiedRecvByIsmf`为例。
-
-![image.png](http://image.huawei.com/tiny-lts/v1/images/e3c38b9c091eac0bf3326f95dc03ae37_1119x212.png@900-0-90-f.png)
-我们到perf5gconcentrate目录下，执行go tool compile命令，发现有导入包的报错，go tool compile仅支持单个文件，所以对于我们代码库上函数，建议使用方法2
-![image.png](http://image.huawei.com/tiny-lts/v1/images/396adce310b9777dbb56f68a28ae9e10_1655x114.png@900-0-90-f.png)
-
 #### 方法2：使用go build
-使用go build编译一个目录perf5gconcentrate查询函数是否被内联
+由于go tool compile仅支持单个文件,使用go build编译一个目录perf5gconcentrate查询函数是否被内联
 执行如下命令：
 ```bash
 go build -gcflags="-m=2" .
@@ -96,5 +90,5 @@ go build -gcflags="-m=2" .
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMzk4NTY0OCwtMTgwNDcxNjQ2Nl19
+eyJoaXN0b3J5IjpbLTMzMDE2NjkwNSwtMTgwNDcxNjQ2Nl19
 -->
