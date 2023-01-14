@@ -61,7 +61,19 @@ go tool compile -m=2 test.go
 - testInline1符合我们预期，是不能被内联的
 - testInline2由于被打上注释“//go:noinline”，所以也不会被内联
 - testInline3则是因为函数过于复杂，超过阈值80了，所以也不能被内联
-![image.png](http://image.huawei.com/tiny-lts/v1/images/c326254d8ff28128b24cd68cc0e86431_1648x308.png@900-0-90-f.png)
+```bash
+$ go tool compile -m=2 test.go
+test.go:15:6: can inline testInline1 with cost 8 as: func(int, int) int { if a > b { return a }; return b }
+test.go:23:6: cannot inline testInline2: marked go:noinline
+test.go:30:6: cannot inline testInline3: function too complex: cost 96 exceeds budget 80
+test.go:32:14: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
+test.go:9:6: cannot inline main: function too complex: cost 359 exceeds budget 80
+test.go:10:25: inlining call to testInline1 func(int, int) int { if a > b { return a }; return b }
+test.go:10:13: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
+test.go:11:13: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
+test.go:12:13: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
+
+```
 
 我们把该方法落到我们实际代码库上再试一下，我们以session库上smc/exec/do/internal/domain/objects/feature/perf/perfrole/perf5g/perf5gconcentrate/perfbuilder_ismf.go文件中`isFailedByRejUnspecidiedRecvByIsmf`为例。
 
@@ -84,5 +96,5 @@ go build -gcflags="-m=2" .
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDQ3MTY0NjZdfQ==
+eyJoaXN0b3J5IjpbMTkwMzk4NTY0OCwtMTgwNDcxNjQ2Nl19
 -->
