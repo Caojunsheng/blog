@@ -76,7 +76,7 @@ test.go:12:13: inlining call to fmt.Println func(...interface {}) (int, error) {
 ```
 
 #### 方法2：使用go build
-由于go tool compile仅支持单个文件,使用go build编译一个目录perf5gconcentrate查询函数是否被内联
+由于go tool compile仅支持单个文件,使用go build编译一个目录查询函数是否被内联
 执行如下命令：
 ```bash
 go build -gcflags="-m=2" .
@@ -90,5 +90,6 @@ go build -gcflags="-m=2" .
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzMDE2NjkwNSwtMTgwNDcxNjQ2Nl19
+eyJoaXN0b3J5IjpbMjAxNTkzNjY3NCwtMzMwMTY2OTA1LC0xOD
+A0NzE2NDY2XX0=
 -->
