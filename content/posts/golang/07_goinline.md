@@ -7,9 +7,10 @@ tags: ["golang", "inline"]
 categories: ["golang"]
 series: ["golang"]
 ---
+一、什么是函数内联
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDI4MDczNTldfQ==
+eyJoaXN0b3J5IjpbMTI0ODA2NjE1N119
 -->
