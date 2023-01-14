@@ -89,10 +89,10 @@ $ go build -gcflags="-m=2" .
 .\test.go:10:13: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
 .\test.go:11:13: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
 .\test.go:12:13: inlining call to fmt.Println func(...interface {}) (int, error) { var fmt..autotmp_3 int; fmt..autotmp_3 = <nil>; var fmt..autotmp_4 error; fmt..autotmp_4 = <nil>; fmt..autotmp_3, fmt..autotmp_4 = fmt.Fprintln(io.Writer(os.Stdout), fmt.a...); return fmt..autotmp_3, fmt..autotmp_4 }
-
+```
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5MTAxNzI1MSwyMDE1OTM2Njc0LC0zMz
-AxNjY5MDUsLTE4MDQ3MTY0NjZdfQ==
+eyJoaXN0b3J5IjpbLTEzMTIxMzE1NzksMjAxNTkzNjY3NCwtMz
+MwMTY2OTA1LC0xODA0NzE2NDY2XX0=
 -->
