@@ -12,7 +12,7 @@ series: ["Hugo Guide"]
 
 ## 我告诉你，出来混，有错就要认，挨打要立正。
 ![](/images/tmp2.jpg)
-test
+## test
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjcwNDQyNTVdfQ==
+eyJoaXN0b3J5IjpbLTc3MzQwNTEzNywtMTg2NzA0NDI1NV19
 -->
