@@ -56,6 +56,11 @@ find / -type f -size +1G -exec du -h {} \;
 # 命令作用是：查询根目录（/）下超过1G大小的文件
 ```
 **10、调试coredump文件**
+```shell
+gdb binary_file core_file
+bt
+```
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDI0MTAyMjksNzMwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbNDUxMzc4NTgyLDczMDk5ODExNl19
 -->
