@@ -19,11 +19,28 @@ rpm2cpio filename | cpio -div
 ```shell
 find . -type f -print0 | xargs -0 -I x sh -c 'rpm2cpio x | cpio -idm'
 ```
-**13、查看全部的vsock连接**
+**4、查看全部的vsock连接**
 ```shell
-# ss -a --vsock -p 
+# ss -a --vsock -p
+``` 
+**5、解压initrd文件**
+`mv initrd initrd.gz && gunzip initrd.gz && cpio -i < initrd`
+将解压后的initrd合成initrd
+`find .|cpio --quiet -H newc -o|gzip -9 -n > ../initrd`
 
-> Written with [StackEdit](https://stackedit.io/).
+**6、测试内存读写速度**
+Stream测试内存性能数据
+
+`gcc -O -fopenmp -DSTREAM_ARRAY_SIZE=100000000 -DNTIME=20 stream.c -o stream`
+
+https://www.cnblogs.com/iouwenbo/p/14377478.html
+**7、查看128个CPU内存占用情况**
+```shell
+yum install sysstat -y
+service sysstat restart
+# 查看全部CPU每个CPU的占用情况，方便观察不同numa上CPU占用分布
+sar -P ALL -u 1 100
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNDYyMzQwNSw3MzA5OTgxMTZdfQ==
+eyJoaXN0b3J5IjpbLTcwMjc2ODUwMSw3MzA5OTgxMTZdfQ==
 -->
