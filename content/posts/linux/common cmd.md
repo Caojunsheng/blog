@@ -67,10 +67,14 @@ cd /usr/src/kernels/4.18.0-147.5.2.19.centos.x86_64/
 make oldconfig && make prepare
 # 修改内核代码后，编译vsock ko模块
 make M=/mnt/xxx/tmp/usr/src/linux-5.10.0-60.18.0.50.x86_64/net/vmw_vsock/ -C /lib/modules/`uname -r`/build -j10
-# 卸载原有ko，安装xin
+# 卸载原有ko，安装新的ko
+rmmod vhost_vsock
+rmmod vmw_vsock_virtio_transport_common
+insmod /mnt/xxx/tmp/usr/src/linux-5.10.0-60.18.0.50..x86_64/net/vmw_vsock//vmw_vsock_virtio_transport_common.ko
+insmod /lib/modules/`uname -r`/kernel/drivers/vhost/vhost_vsock.ko.xz
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1MzE1ODk2MCwxNjMyMDgxNDMyLDczMD
+eyJoaXN0b3J5IjpbLTExOTEzMDYxMiwxNjMyMDgxNDMyLDczMD
 k5ODExNl19
 -->
