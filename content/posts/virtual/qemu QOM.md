@@ -1,3 +1,12 @@
+---
+title: "qemu QOM代码"
+date: 2024-05-08T16:59:28+08:00
+description: "qemu QOM"
+draft: false
+tags: ["qemu"]
+categories: ["qemu"]
+series: ["virtual"]
+---
 
 QEMU提供了一套面向对象编程的模型——QOM，即QEMU Object Model，几乎所有的设备如CPU、内存、总线等都是利用这一面向对象的模型来实现的。
 
@@ -355,5 +364,5 @@ type_init(machine_register_types)
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDU2NjAzMTFdfQ==
+eyJoaXN0b3J5IjpbLTE2MjE5NDk0M119
 -->
