@@ -62,10 +62,11 @@ bt
 ```
 **11、内核模块编译**
 ```
-``
 #编译kernel配置文件
-cd /usr/src/kernels/4.18.0-147.5.2.19.h1436.eulerosv2r10.x86_64/
+cd /usr/src/kernels/4.18.0-147.5.2.19.centos.x86_64/
 make oldconfig && make prepare
+```
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjkwNDM0NTE0LDczMDk5ODExNl19
+eyJoaXN0b3J5IjpbMTYzMjA4MTQzMiw3MzA5OTgxMTZdfQ==
 -->
