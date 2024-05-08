@@ -5,7 +5,7 @@ description: "如何查看PCIe AER寄存器值和修改寄存器值"
 draft: false
 tags: ["PCIe"]
 categories: ["linux"]
-series: ["Hugo Guide"]
+series: ["linux"]
 ---
 
 ### 1、AER简介
@@ -133,6 +133,6 @@ L代表是Long，长字，即32位，也可以是B、W等
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1OTA2MTM2OCwxNTg4Mzg4ODI2LC0yMT
-E5MDA1NDkzXX0=
+eyJoaXN0b3J5IjpbLTEyNzAwMTY4MDksMTU4ODM4ODgyNiwtMj
+ExOTAwNTQ5M119
 -->
