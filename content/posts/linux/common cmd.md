@@ -41,6 +41,21 @@ service sysstat restart
 # 查看全部CPU每个CPU的占用情况，方便观察不同numa上CPU占用分布
 sar -P ALL -u 1 100
 ```
+
+**8、查看vsock是否通**
+`yum install nmap`
+服务端开启：`nc -v --vsock -l 1234`
+客户端连接：`nc -v --vsock 3 1234`
+
+**9、查看根目录大文件超过1G**
+```shell
+find / -xdev -size +1G -exec ls -l {} \;
+find / -type f -size +1G -exec du -h {} \;
+
+# 选其一即可
+# 命令作用是：查询根目录（/）下超过1G大小的文件
+```
+**10、调试coredump文件**
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwMjc2ODUwMSw3MzA5OTgxMTZdfQ==
+eyJoaXN0b3J5IjpbLTExNDI0MTAyMjksNzMwOTk4MTE2XX0=
 -->
