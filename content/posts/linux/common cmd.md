@@ -65,8 +65,11 @@ bt
 #编译kernel配置文件
 cd /usr/src/kernels/4.18.0-147.5.2.19.centos.x86_64/
 make oldconfig && make prepare
+# 编译
+make M=/mnt/cjs/tmp/usr/src/linux-5.10.0-60.18.0.50.r1002_48.hce2.x86_64/net/vmw_vsock/ -C /lib/modules/`uname -r`/build -j10
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzMjA4MTQzMiw3MzA5OTgxMTZdfQ==
+eyJoaXN0b3J5IjpbLTE2NDUzOTU4MDksMTYzMjA4MTQzMiw3Mz
+A5OTgxMTZdfQ==
 -->
