@@ -8,7 +8,7 @@ categories: ["linux"]
 series: ["Hugo Guide"]
 ---
 
-https://blog.csdn.net/zsmcdut/article/details/120151896
+
 ```shell
 Capabilities: [100 v2] Advanced Error Reporting
         UESta:  DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq+ ACSViol-
@@ -59,8 +59,9 @@ Capabilities: [100 v2] Advanced Error Reporting
 - TLPPfxPres 表示设备是否支持 TLP 前缀保留（TLP Prefix Preservation）功能。
 - HdrLogCap 表示设备是否支持头部日志（Header Logging）功能。
 
-> Written with [StackEdit](https://stackedit.io/).
+> https://blog.csdn.net/zsmcdut/article/details/120151896
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzU5ODYyNTYsLTIxMTkwMDU0OTNdfQ
-==
+eyJoaXN0b3J5IjpbMTU4ODM4ODgyNiwtMjExOTAwNTQ5M119
 -->
