@@ -11,6 +11,7 @@ series: ["linux"]
 ```shell
 rpm2cpio filename | cpio -div
 ```
+
 **2、yum一次性删除多个rpm包**
 
     yum list --installed|grep xxx|awk '{print $1}'|xargs yum remove -y
@@ -19,13 +20,17 @@ rpm2cpio filename | cpio -div
 ```shell
 find . -type f -print0 | xargs -0 -I x sh -c 'rpm2cpio x | cpio -idm'
 ```
+
 **4、查看全部的vsock连接**
 ```shell
 # ss -a --vsock -p
 ``` 
+
 **5、解压initrd文件**
 `mv initrd initrd.gz && gunzip initrd.gz && cpio -i < initrd`
+
 将解压后的initrd合成initrd
+
 `find .|cpio --quiet -H newc -o|gzip -9 -n > ../initrd`
 
 **6、测试内存读写速度**
@@ -34,6 +39,7 @@ Stream测试内存性能数据
 `gcc -O -fopenmp -DSTREAM_ARRAY_SIZE=100000000 -DNTIME=20 stream.c -o stream`
 
 https://www.cnblogs.com/iouwenbo/p/14377478.html
+
 **7、查看128个CPU内存占用情况**
 ```shell
 yum install sysstat -y
@@ -43,8 +49,11 @@ sar -P ALL -u 1 100
 ```
 
 **8、查看vsock是否通**
+
 `yum install nmap`
+
 服务端开启：`nc -v --vsock -l 1234`
+
 客户端连接：`nc -v --vsock 3 1234`
 
 **9、查看根目录大文件超过1G**
@@ -61,7 +70,7 @@ gdb binary_file core_file
 bt
 ```
 **11、内核模块编译**
-```
+```shell
 #编译kernel配置文件
 cd /usr/src/kernels/4.18.0-147.5.2.19.centos.x86_64/
 make oldconfig && make prepare
@@ -75,6 +84,6 @@ insmod /lib/modules/`uname -r`/kernel/drivers/vhost/vhost_vsock.ko.xz
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTEzMDYxMiwxNjMyMDgxNDMyLDczMD
-k5ODExNl19
+eyJoaXN0b3J5IjpbLTE3NDczNTI4MCwtMTE5MTMwNjEyLDE2Mz
+IwODE0MzIsNzMwOTk4MTE2XX0=
 -->
