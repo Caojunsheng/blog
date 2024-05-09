@@ -1,14 +1,14 @@
 ---
-title: "rpm常用命令"
-date: 2024-05-09T17:05:28+08:00
-description: "linux rpm常用命令"
+title: "gdb常用命令"
+date: 2024-05-09T17:15:28+08:00
+description: "linux gdb常用命令"
 draft: false
-tags: ["rpm"]
+tags: ["gdb"]
 categories: ["linux"]
 series: ["linux"]
 ---
 
-相关命令：
+**相关命令：**
 r（run）：运行
 q（quit）：退出
 b（break）：打断点
@@ -45,5 +45,5 @@ set print pretty on：格式化打印
 (gdb) p buffer[0]@10
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTE5NTczOTNdfQ==
+eyJoaXN0b3J5IjpbLTMxOTcyNDI1MF19
 -->
