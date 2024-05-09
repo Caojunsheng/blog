@@ -1,3 +1,12 @@
+---
+title: "rpm常用命令"
+date: 2024-05-09T17:05:28+08:00
+description: "linux rpm常用命令"
+draft: false
+tags: ["rpm"]
+categories: ["linux"]
+series: ["linux"]
+---
 
 ### 1.安装一个包
 ```shell
@@ -53,5 +62,5 @@ find . -type f -print0 | xargs -0 -I x sh -c 'rpm2cpio x | cpio -idm'
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE2OTUyNTM2XX0=
+eyJoaXN0b3J5IjpbLTE4NjA5MTAzMDVdfQ==
 -->
