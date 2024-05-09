@@ -85,7 +85,27 @@ insmod /mnt/xxx/tmp/usr/src/linux-5.10.0-60.18.0.50.x86_64/net/vmw_vsock//vmw_vs
 insmod /lib/modules/`uname -r`/kernel/drivers/vhost/vhost_vsock.ko.xz
 ```
 
+**12、设置git https校验位false**
+
+`git config --global http.sslVerify false`
+
+13、git命令补全
+拷贝下面文件内容放到文件~/.git-completion.bash里面
+https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+
+vim ~/.bash_profile
+
+if [ -f ~/.git-completion.bash ]; then 
+. ~/.git-completion.bash 
+fi 
+
+source ~/.bash_profile
+
+
+git保存密码
+git config --global credential.helper store
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4MDY2OTE3MiwtMTE5MTMwNjEyLDE2Mz
-IwODE0MzIsNzMwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbMTY2NjU5NTQyMSwtNDgwNjY5MTcyLC0xMT
+kxMzA2MTIsMTYzMjA4MTQzMiw3MzA5OTgxMTZdfQ==
 -->
