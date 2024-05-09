@@ -105,10 +105,12 @@ fi
 source ~/.bash_profile
 ```
 
-14、git保存密码
-git config --global credential.helper store
+**14、git保存密码**
+
+`git config --global credential.helper store`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3MTU0ODQyNSwtNDgwNjY5MTcyLC0xMT
-kxMzA2MTIsMTYzMjA4MTQzMiw3MzA5OTgxMTZdfQ==
+eyJoaXN0b3J5IjpbLTE0NDI2MzI5MTUsMTI3MTU0ODQyNSwtND
+gwNjY5MTcyLC0xMTkxMzA2MTIsMTYzMjA4MTQzMiw3MzA5OTgx
+MTZdfQ==
 -->
