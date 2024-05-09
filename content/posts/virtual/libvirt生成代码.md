@@ -1,4 +1,12 @@
-
+---
+title: "libvirt 生成代码"
+date: 2024-05-09T17:59:28+08:00
+description: "libvirt自动生成代码"
+draft: false
+tags: ["libvirt"]
+categories: ["libvirt"]
+series: ["virtualization"]
+---
 
 >背景：当我们需要修改xxx_protocol.x文件新增请求参数或者返回值参数时，又或者是需要修改自动生成出的代码时（gendispatch.pl），想先本地看看生成出的代码是否符合预期时，可以先在本地执行生成代码的操作，避免上环境编译才能得到生成代码。
 
@@ -110,5 +118,5 @@ perl -w gendispatch.pl --mode=server qemu QEMU ../remote/qemu_protocol.x  > ../r
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDkzNzI1MjJdfQ==
+eyJoaXN0b3J5IjpbMTY4NDg2NDMyMiwtMTQwOTM3MjUyMl19
 -->
