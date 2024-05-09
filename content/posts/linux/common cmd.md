@@ -27,6 +27,7 @@ find . -type f -print0 | xargs -0 -I x sh -c 'rpm2cpio x | cpio -idm'
 ``` 
 
 **5、解压initrd文件**
+
 `mv initrd initrd.gz && gunzip initrd.gz && cpio -i < initrd`
 
 将解压后的initrd合成initrd
@@ -34,6 +35,7 @@ find . -type f -print0 | xargs -0 -I x sh -c 'rpm2cpio x | cpio -idm'
 `find .|cpio --quiet -H newc -o|gzip -9 -n > ../initrd`
 
 **6、测试内存读写速度**
+
 Stream测试内存性能数据
 
 `gcc -O -fopenmp -DSTREAM_ARRAY_SIZE=100000000 -DNTIME=20 stream.c -o stream`
@@ -79,11 +81,11 @@ make M=/mnt/xxx/tmp/usr/src/linux-5.10.0-60.18.0.50.x86_64/net/vmw_vsock/ -C /li
 # 卸载原有ko，安装新的ko
 rmmod vhost_vsock
 rmmod vmw_vsock_virtio_transport_common
-insmod /mnt/xxx/tmp/usr/src/linux-5.10.0-60.18.0.50..x86_64/net/vmw_vsock//vmw_vsock_virtio_transport_common.ko
+insmod /mnt/xxx/tmp/usr/src/linux-5.10.0-60.18.0.50.x86_64/net/vmw_vsock//vmw_vsock_virtio_transport_common.ko
 insmod /lib/modules/`uname -r`/kernel/drivers/vhost/vhost_vsock.ko.xz
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDczNTI4MCwtMTE5MTMwNjEyLDE2Mz
+eyJoaXN0b3J5IjpbLTQ4MDY2OTE3MiwtMTE5MTMwNjEyLDE2Mz
 IwODE0MzIsNzMwOTk4MTE2XX0=
 -->
