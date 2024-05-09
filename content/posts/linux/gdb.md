@@ -66,8 +66,10 @@ set print pretty on：格式化打印
 (gdb) set print array-indexes on
 
 输出index从0开始共十个
+
 (gdb) p buffer[0]@10
+
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzkyNTMwMDM4XX0=
+eyJoaXN0b3J5IjpbLTIwMTE5MDM4NTRdfQ==
 -->
