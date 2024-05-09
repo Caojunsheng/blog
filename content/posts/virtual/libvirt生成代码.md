@@ -46,6 +46,7 @@ enum remote_procedure {
 ### 2、perl生成代码文件
 
 src/rpc/gendispatch.pl支持生成client和server两种代码
+
 ```perl
 # Bodies for dispatch functions ("remote_dispatch.h").
 elsif ($mode eq "server") 
@@ -56,7 +57,7 @@ elsif ($mode eq "client")
 通过Makefile自动生成client和server代码
 
 src/remote/Makefile.inc.am
-```
+```makefile
 remote/remote_client_bodies.h: $(srcdir)/rpc/gendispatch.pl \
 		$(REMOTE_PROTOCOL) Makefile.am
 	$(AM_V_GEN)$(PERL) -w $(srcdir)/rpc/gendispatch.pl --mode=client \
@@ -118,5 +119,6 @@ perl -w gendispatch.pl --mode=server qemu QEMU ../remote/qemu_protocol.x  > ../r
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4NDg2NDMyMiwtMTQwOTM3MjUyMl19
+eyJoaXN0b3J5IjpbLTE4MTIxMTI2OTgsMTY4NDg2NDMyMiwtMT
+QwOTM3MjUyMl19
 -->
