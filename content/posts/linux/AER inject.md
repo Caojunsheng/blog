@@ -7,7 +7,9 @@ tags: ["PCIe", "AER"]
 categories: ["linux"]
 series: ["linux"]
 ---
-#1、编译出aer_inject.ko
+对AER注入错误需要内核模块支持注入，需要安装aer_inject.ko模块，以及需要工具aer-inject命令行工具
+
+### 1、编译出aer_inject.ko
 ```shell
 make M=/mnt/cjs/kernel/usr/src/linux-4.19.90-vhulk2202.2.0.h1064.eulerosv2r10.aarch64/drivers/pci/pcie -C /lib/modules/4.19.90-vhulk2202.2.0.h1064.eulerosv2r10.aarch64/build/ -j10 CONFIG_PCIEAER_INJECT=m
 insmod aer_inject.ko
@@ -18,7 +20,7 @@ insmod aer_inject.ko
 crw------- 1 root root 10, 51 May 15 10:14 /dev/aer_inject
 ```
 
-2、获取aer-inject aer错误注入工具
+### 2、获取aer-inject aer错误注入工具
 ```shell
 git clone https://github.com/jderrick/aer-inject.git
 cd aer-inject
@@ -59,5 +61,5 @@ HEADER_LOG 0 1 2 4
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk2NzE3NzIzXX0=
+eyJoaXN0b3J5IjpbLTE2MDQzMDIwNDVdfQ==
 -->
