@@ -45,8 +45,9 @@ AER
 UNCOR_STATUS SURPDN
 HEADER_LOG 0 1 2 4
 ```
-
+#### 3.1 先屏蔽AER错误，观察是否正常注入错误
 由于该设备不可校正错误掩码寄存器中将SDES置为1，所以将该错误屏蔽了，从/var/log/message中日志也可以看出。
+
 ![](http://image.huawei.com/tiny-lts/v1/images/92dc466439eaff8b5599570acce3fa70_1015x154.png)
 ```shell
 2024-05-15T14:57:36.877516+08:00|warning|kernel[-]|[17763.652315] pci 0000:08:0e.0: aer_inject: The uncorrectable error(s) is masked by device
@@ -68,5 +69,5 @@ HEADER_LOG 0 1 2 4
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2ODM0NzU2OV19
+eyJoaXN0b3J5IjpbMjEzMzUzODY0M119
 -->
