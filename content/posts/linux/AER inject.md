@@ -11,27 +11,34 @@ series: ["linux"]
 
 ### 1、编译出aer_inject.ko
 ```shell
-make M=/mnt/cjs/kernel/usr/src/linux-4.19.90-vhulk2202.2.0.h1064.eulerosv2r10.aarch64/drivers/pci/pcie -C /lib/modules/4.19.90-vhulk2202.2.0.h1064.eulerosv2r10.aarch64/build/ -j10 CONFIG_PCIEAER_INJECT=m
+#编译ko模块
+make M=/mnt/cjs/kernel/usr/src/linux-4.19.90-vhulk2202.2.0.h1064.aarch64/drivers/pci/pcie -C /lib/modules/4.19.90-vhulk2202.2.0.h1064.aarch64/build/ -j10 CONFIG_PCIEAER_INJECT=m
+#安装ko模块
 insmod aer_inject.ko
 ```
+
 安装成功后，能够在dev设备下看到aer_inject
+
 ```shell
 # ll /dev/aer_inject 
 crw------- 1 root root 10, 51 May 15 10:14 /dev/aer_inject
 ```
 
 ### 2、获取aer-inject aer错误注入工具
+
 ```shell
 git clone https://github.com/jderrick/aer-inject.git
 cd aer-inject
 make
 ```
 
-3、aer错误注入
+### 3、aer错误注入
 执行下面命令注入错误，这个代表针对08:0e.0设备注入不可校正的SURPDN（Surprise Down Error）错误
+
 `./aer-inject -s 08:0e.0 examples/fatal`
 
 examples/fatal文件
+
 ```shell
 AER
 # PCI_ID [WWWW:]XX.YY.Z
@@ -61,5 +68,5 @@ HEADER_LOG 0 1 2 4
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDQzMDIwNDVdfQ==
+eyJoaXN0b3J5IjpbMTk2ODM0NzU2OV19
 -->
