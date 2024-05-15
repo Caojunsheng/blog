@@ -81,13 +81,14 @@ HEADER_LOG 0 1 2 4
 
 ```shell
 # lspci -vvs 08:0e.0
-08:0e.0 PCI bridge: Huawei Technologies Co., Ltd. Hi1822 Family Virtual Bridge (rev ff) (prog-if ff)
+08:0e.0 PCI bridge: xxx Device (rev ff) (prog-if ff)
 	!!! Unknown header type 7f
 ```
 
+后续没有找到恢复该设备的方法，重置设备报错`echo 1 > /sys/bus/pci/devices/<device_bus_id>/reset`，只能重启恢复
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyMDM2NTI1N119
+eyJoaXN0b3J5IjpbLTExOTYyMDE4MjRdfQ==
 -->
