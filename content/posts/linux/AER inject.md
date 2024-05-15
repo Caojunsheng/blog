@@ -59,7 +59,6 @@ HEADER_LOG 0 1 2 4
 		HeaderLog: 00000000 00000000 00000000 00000000
 
 ```
-![](http://image.huawei.com/tiny-lts/v1/images/92dc466439eaff8b5599570acce3fa70_1015x154.png)
 
 /var/log/message日志
 ```shell
@@ -90,5 +89,5 @@ HEADER_LOG 0 1 2 4
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTYyMDE4MjRdfQ==
+eyJoaXN0b3J5IjpbNzgzNzM1NTYwXX0=
 -->
