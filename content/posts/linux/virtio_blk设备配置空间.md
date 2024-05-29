@@ -7,7 +7,9 @@ tags: ["virtio"]
 categories: ["linux"]
 series: ["linux"]
 ---
+
 以virtio_blk设备的配置空间为例
+
 ```shell
 # lspci -vvvvs 31:00.7
 31:00.7 Class fe01: Virtio: Virtio block device (prog-if 30)
@@ -104,6 +106,7 @@ series: ["linux"]
 
 
 ```
+
 lspci -xxxs 31:00.7
 
 31:00.7 Class fe01: Virtio: Virtio block device
@@ -192,8 +195,10 @@ struct virtio_pci_cap {
 ```
 
 以c8起始的Capabilities为例，逐个解析
+
 Capabilities: [c8] Vendor Specific Information: VirtIO: Notify
-		BAR=1 offset=00000ff0 size=00000004 multiplier=00000000
+
+BAR=1 offset=00000ff0 size=00000004 multiplier=00000000
 
 c0: 00 0f 00 00 38 00 00 00 <span style="background-color:rgb(233,30,77)">09 dc 14 02 01 00 00 00</span>
 d0: <span style="background-color:rgb(233,30,77)">f0 0f 00 00 04 00 00 00</span> 00 00 00 00 09 ec 10 03
@@ -212,5 +217,5 @@ d0: <span style="background-color:rgb(233,30,77)">f0 0f 00 00 04 00 00 00</span>
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1Nzc3NzAzNzFdfQ==
+eyJoaXN0b3J5IjpbLTUwMzc5MzY1LC0xNTc3NzcwMzcxXX0=
 -->
