@@ -7,9 +7,121 @@ tags: ["PCIe", "virtio"]
 categories: ["linux"]
 series: ["linux"]
 ---
+以virtio_blk设备的配置空间为例
 ```shell
+# lspci -vvvvs 31:00.7
+31:00.7 Class fe01: Virtio: Virtio block device (prog-if 30)
+	Subsystem: Virtio: Device 0002
+	Physical Slot: 2
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr+ Stepping- SERR+ FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx+
+	Latency: 0, Cache Line Size: 32 bytes
+	NUMA node: 0
+	Region 0: Memory at 9c816000 (32-bit, prefetchable) [size=8K]
+	Region 1: Memory at 9c821000 (32-bit, non-prefetchable) [size=4K]
+	Region 2: Memory at 9c7e8000 (32-bit, prefetchable) [size=32K]
+	Region 3: Memory at 9c730000 (32-bit, non-prefetchable) [size=64K]
+	Region 4: Memory at d2ff4800000 (64-bit, prefetchable) [size=4M]
+	Expansion ROM at 9bf00000 [disabled] [size=1M]
+	Capabilities: [40] Express (v2) Endpoint, MSI 00
+		DevCap:	MaxPayload 512 bytes, PhantFunc 0, Latency L0s unlimited, L1 unlimited
+			ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ SlotPowerLimit 0.000W
+		DevCtl:	CorrErr+ NonFatalErr+ FatalErr+ UnsupReq-
+			RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+ FLReset-
+			MaxPayload 512 bytes, MaxReadReq 4096 bytes
+		DevSta:	CorrErr+ NonFatalErr- FatalErr- UnsupReq+ AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed 16GT/s, Width x8, ASPM not supported
+			ClockPM- Surprise- LLActRep- BwNot- ASPMOptComp+
+		LnkCtl:	ASPM Disabled; RCB 64 bytes Disabled- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 16GT/s (ok), Width x8 (ok)
+			TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+		DevCap2: Completion Timeout: Not Supported, TimeoutDis-, NROPrPrP-, LTR-
+			 10BitTagComp-, 10BitTagReq-, OBFF Not Supported, ExtFmt+, EETLPPrefix-
+			 EmergencyPowerReduction Not Supported, EmergencyPowerReductionInit-
+			 FRS-, TPHComp-, ExtTPHComp-
+			 AtomicOpsCap: 32bit- 64bit- 128bitCAS-
+		DevCtl2: Completion Timeout: 50us to 50ms, TimeoutDis-, LTR-, OBFF Disabled
+			 AtomicOpsCtl: ReqEn+
+		LnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete-, EqualizationPhase1-
+			 EqualizationPhase2-, EqualizationPhase3-, LinkEqualizationRequest-
+	Capabilities: [80] MSI: Enable- Count=1/2 Maskable+ 64bit+
+		Address: 0000000000000000  Data: 0000
+		Masking: 00000000  Pending: 00000000
+	Capabilities: [98] Vital Product Data
+		Product Name:  
+		Read-only fields:
+			[PN] Part number: 970, NIC, 2X100GE
+		End
+	Capabilities: [a0] MSI-X: Enable+ Count=2 Masked-
+		Vector table: BAR=2 offset=00000000
+		PBA: BAR=2 offset=00004000
+	Capabilities: [b0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1+,D2+,D3hot+,D3cold+)
+		Status: D0 NoSoftRst+ PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [b8] Vendor Specific Information: VirtIO: CommonCfg
+		BAR=1 offset=00000f00 size=00000038
+	Capabilities: [c8] Vendor Specific Information: VirtIO: Notify
+		BAR=1 offset=00000ff0 size=00000004 multiplier=00000000
+	Capabilities: [dc] Vendor Specific Information: VirtIO: ISR
+		BAR=1 offset=00000f3c size=00000004
+	Capabilities: [ec] Vendor Specific Information: VirtIO: DeviceCfg
+		BAR=1 offset=00000f40 size=00000050
+	Capabilities: [100 v2] Advanced Error Reporting
+		UESta:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq+ ACSViol-
+		UEMsk:	DLP- SDES- TLP+ FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq+ ACSViol-
+		UESvrt:	DLP+ SDES+ TLP- FCP+ CmpltTO- CmpltAbrt- UnxCmplt- RxOF+ MalfTLP+ ECRC- UnsupReq- ACSViol-
+		CESta:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr+
+		CEMsk:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr-
+		AERCap:	First Error Pointer: 00, ECRCGenCap+ ECRCGenEn- ECRCChkCap+ ECRCChkEn-
+			MultHdrRecCap- MultHdrRecEn- TLPPfxPres- HdrLogCap+
+		HeaderLog: 00000000 00000000 00000000 00000000
+	Capabilities: [150 v1] Alternative Routing-ID Interpretation (ARI)
+		ARICap:	MFVC- ACS-, Next Function: 8
+		ARICtl:	MFVC- ACS-, Function Group: 0
+	Capabilities: [200 v1] Single Root I/O Virtualization (SR-IOV)
+		IOVCap:	Migration-, Interrupt Message Number: 000
+		IOVCtl:	Enable+ Migration- Interrupt- MSE+ ARIHierarchy-
+		IOVSta:	Migration-
+		Initial VFs: 255, Total VFs: 255, Number of VFs: 255, Function Dependency Link: 07
+		VF offset: 1144, stride: 1, Device ID: 1001
+		Supported Page Size: 00000553, System Page Size: 00000001
+		Region 0: Memory at 00000d2ffd70c000 (64-bit, prefetchable)
+		Region 2: Memory at 00000d2ff97f0000 (64-bit, prefetchable)
+		Region 4: Memory at 00000d2ffd310000 (64-bit, prefetchable)
+		VF Migration: offset: 00000000, BIR: 0
+	Capabilities: [2a0 v1] Transaction Processing Hints
+		Device specific mode supported
+		No steering table available
+	Capabilities: [4e0 v1] Device Serial Number ff-ff-ff-ff-ff-ff-ff-ff
+	Capabilities: [630 v1] Access Control Services
+		ACSCap:	SrcValid- TransBlk- ReqRedir- CmpltRedir- UpstreamFwd- EgressCtrl- DirectTrans-
+		ACSCtl:	SrcValid- TransBlk- ReqRedir- CmpltRedir- UpstreamFwd- EgressCtrl- DirectTrans-
+	Capabilities: [700 v1] Data Link Feature <?>
+	Kernel driver in use: virtio-pci
+	Kernel modules: virtio_pci
+
+# lspci -xxxs 31:00.7
+31:00.7 Class fe01: Virtio: Virtio block device
+00: f4 1a 01 10 46 05 18 00 00 30 01 fe 08 00 80 00
+10: 08 60 81 9c 00 10 82 9c 08 80 7e 9c 00 00 73 9c
+20: 0c 00 80 f4 2f 0d 00 00 00 00 00 00 f4 1a 02 00
+30: 00 00 f0 9b 40 00 00 00 00 00 00 00 ff 00 00 00
+40: 10 80 02 00 e2 8f 00 10 57 59 09 00 84 f0 43 00
+50: 00 00 84 00 00 00 00 00 00 00 00 00 00 00 00 00
+60: 00 00 00 00 00 00 10 00 40 00 00 00 3e 3e 80 01
+70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+80: 05 98 82 01 00 00 00 00 00 00 00 00 00 00 00 00
+90: 00 00 00 00 00 00 00 00 03 a0 18 80 30 47 45 78
+a0: 11 b0 01 80 02 00 00 00 02 40 00 00 00 00 00 00
+b0: 01 b8 03 f8 08 00 00 00 09 c8 10 01 01 00 00 00
+c0: 00 0f 00 00 38 00 00 00 09 dc 14 02 01 00 00 00
+d0: f0 0f 00 00 04 00 00 00 00 00 00 00 09 ec 10 03
+e0: 01 00 00 00 3c 0f 00 00 04 00 00 00 09 00 10 04
+f0: 01 00 00 00 40 0f 00 00 50 00 00 00 00 00 00 00
 
 ```
+
 ```c
 // PCI Capabilities ID枚举
 #define  PCI_CAP_ID_PM		0x01	/* Power Management */
@@ -85,5 +197,5 @@ d0: <span style="background-color:rgb(233,30,77)">f0 0f 00 00 04 00 00 00</span>
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5MTg2MDE5NF19
+eyJoaXN0b3J5IjpbLTE5NDg3OTk5MDJdfQ==
 -->
