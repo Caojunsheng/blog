@@ -101,7 +101,10 @@ series: ["linux"]
 	Kernel driver in use: virtio-pci
 	Kernel modules: virtio_pci
 
-# lspci -xxxs 31:00.7
+
+
+```
+lspci -xxxs 31:00.7
 31:00.7 Class fe01: Virtio: Virtio block device
 00: f4 1a 01 10 46 05 18 00 00 30 01 fe 08 00 80 00
 10: 08 60 81 9c 00 10 82 9c 08 80 7e 9c 00 00 73 9c
@@ -119,8 +122,6 @@ c0: 00 0f 00 00 38 00 00 00 09 dc 14 02 01 00 00 00
 d0: f0 0f 00 00 04 00 00 00 00 00 00 00 09 ec 10 03
 e0: 01 00 00 00 3c 0f 00 00 04 00 00 00 09 00 10 04
 f0: 01 00 00 00 40 0f 00 00 50 00 00 00 00 00 00 00
-
-```
 
 ```c
 // PCI Capabilities ID枚举
@@ -173,9 +174,6 @@ struct virtio_pci_cap {
 #define VIRTIO_PCI_CAP_SHARED_MEMORY_CFG 8
 ```
 
-![](http://image.huawei.com/tiny-lts/v1/images/0a60c0ca41e348844beda2c20ec2d279_486x326.png)
-
-
 以c8起始的Capabilities为例，逐个解析
 Capabilities: [c8] Vendor Specific Information: VirtIO: Notify
 		BAR=1 offset=00000ff0 size=00000004 multiplier=00000000
@@ -197,5 +195,5 @@ d0: <span style="background-color:rgb(233,30,77)">f0 0f 00 00 04 00 00 00</span>
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDg3OTk5MDJdfQ==
+eyJoaXN0b3J5IjpbMTE1NjAyMTU0Nl19
 -->
