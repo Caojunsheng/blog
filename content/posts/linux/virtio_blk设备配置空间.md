@@ -107,6 +107,7 @@ series: ["linux"]
 
 ```
 
+
 lspci -xxxs 31:00.7
 
 31:00.7 Class fe01: Virtio: Virtio block device
@@ -117,9 +118,11 @@ lspci -xxxs 31:00.7
 
 20: 0c 00 80 f4 2f 0d 00 00 00 00 00 00 f4 1a 02 00
 
-30: 00 00 f0 9b <span style="background-color:rgb(233,30,77)">40</span> 00 00 00 00 00 00 00 ff 00 00 00
+30: 00 00 f0 9b 40 00 00 00 00 00 00 00 ff 00 00 00
 
-40: 10 <span style="background-color:rgb(233,30,77)">80</span> 02 00 e2 8f 00 10 57 59 09 00 84 f0 43 00
+<span style="background-color:rgb(255,235,59)">// #define  PCI_CAP_ID_EXP		0x10	/* PCI Express */</span>
+
+40: <span style="background-color:rgb(233,30,77)">10</span> 80 02 00 e2 8f 00 10 57 59 09 00 84 f0 43 00
 
 50: 00 00 84 00 00 00 00 00 00 00 00 00 00 00 00 00
 
@@ -127,19 +130,29 @@ lspci -xxxs 31:00.7
 
 70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
-80: 05 <span style="background-color:rgb(233,30,77)">98</span> 82 01 00 00 00 00 00 00 00 00 00 00 00 00
+<span style="background-color:rgb(255,235,59)">// #define  PCI_CAP_ID_MSI		0x05	/* Message Signalled Interrupts */</span>
 
-90: 00 00 00 00 00 00 00 00 03 <span style="background-color:rgb(233,30,77)">a0</span> 18 80 30 47 45 78
+80: <span style="background-color:rgb(233,30,77)">05</span> 98 82 01 00 00 00 00 00 00 00 00 00 00 00 00
 
-a0: 11 <span style="background-color:rgb(233,30,77)">b0</span> 01 80 02 00 00 00 02 40 00 00 00 00 00 00
+<span style="background-color:rgb(255,235,59)">// #define  PCI_CAP_ID_VPD		0x03	/* Vital Product Data */</span>
 
-b0: 01 <span style="background-color:rgb(233,30,77)">b8</span> 03 f8 08 00 00 00 09 <span style="background-color:rgb(233,30,77)">c8</span> 10 01 01 00 00 00
+90: 00 00 00 00 00 00 00 00 <span style="background-color:rgb(233,30,77)">03</span> a0 18 80 30 47 45 78
 
-c0: 00 0f 00 00 38 00 00 00 09 <span style="background-color:rgb(233,30,77)">dc</span> 14 02 01 00 00 00
+<span style="background-color:rgb(255,235,59)">// #define  PCI_CAP_ID_MSIX	0x11	/* MSI-X */</span>
 
-d0: f0 0f 00 00 04 00 00 00 00 00 00 00 09 <span style="background-color:rgb(233,30,77)">ec</span> 10 03
+a0: <span style="background-color:rgb(233,30,77)">11</span> b0 01 80 02 00 00 00 02 40 00 00 00 00 00 00
 
-e0: 01 00 00 00 3c 0f 00 00 04 00 00 00 09 00 10 04
+<span style="background-color:rgb(255,235,59)">//#define  PCI_CAP_ID_PM		0x01	/* Power Management */</span>
+
+<span style="background-color:rgb(255,235,59)">//#define  PCI_CAP_ID_VNDR	0x09	/* Vendor-Specific */</span>
+
+b0: <span style="background-color:rgb(233,30,77)">01</span> b8 03 f8 08 00 00 00 <span style="background-color:rgb(233,30,77)">09</span> c8 10 01 01 00 00 00
+
+c0: 00 0f 00 00 38 00 00 00 <span style="background-color:rgb(233,30,77)">09</span> dc 14 02 01 00 00 00
+
+d0: f0 0f 00 00 04 00 00 00 00 00 00 00 <span style="background-color:rgb(233,30,77)">09</span> ec 10 03
+
+e0: 01 00 00 00 3c 0f 00 00 04 00 00 00 <span style="background-color:rgb(233,30,77)">09</span> 00 10 04
 
 f0: 01 00 00 00 40 0f 00 00 50 00 00 00 00 00 00 00
 
@@ -219,5 +232,6 @@ d0: <span style="background-color:rgb(233,30,77)">f0 0f 00 00 04 00 00 00</span>
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNDA5MTUyMSwtMTU3Nzc3MDM3MV19
+eyJoaXN0b3J5IjpbLTk5OTIzMjgwLC01MjQwOTE1MjEsLTE1Nz
+c3NzAzNzFdfQ==
 -->
