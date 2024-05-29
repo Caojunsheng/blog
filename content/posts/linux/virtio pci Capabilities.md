@@ -105,22 +105,39 @@ series: ["linux"]
 
 ```
 lspci -xxxs 31:00.7
+
 31:00.7 Class fe01: Virtio: Virtio block device
+
 00: f4 1a 01 10 46 05 18 00 00 30 01 fe 08 00 80 00
+
 10: 08 60 81 9c 00 10 82 9c 08 80 7e 9c 00 00 73 9c
+
 20: 0c 00 80 f4 2f 0d 00 00 00 00 00 00 f4 1a 02 00
+
 30: 00 00 f0 9b <span style="background-color:rgb(233,30,77)">40</span> 00 00 00 00 00 00 00 ff 00 00 00
+
 40: 10 <span style="background-color:rgb(233,30,77)">80</span> 02 00 e2 8f 00 10 57 59 09 00 84 f0 43 00
+
 50: 00 00 84 00 00 00 00 00 00 00 00 00 00 00 00 00
+
 60: 00 00 00 00 00 00 10 00 40 00 00 00 3e 3e 80 01
+
 70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
 80: 05 <span style="background-color:rgb(233,30,77)">98</span> 82 01 00 00 00 00 00 00 00 00 00 00 00 00
+
 90: 00 00 00 00 00 00 00 00 03 <span style="background-color:rgb(233,30,77)">a0</span> 18 80 30 47 45 78
+
 a0: 11 <span style="background-color:rgb(233,30,77)">b0</span> 01 80 02 00 00 00 02 40 00 00 00 00 00 00
+
 b0: 01 <span style="background-color:rgb(233,30,77)">b8</span> 03 f8 08 00 00 00 09 <span style="background-color:rgb(233,30,77)">c8</span> 10 01 01 00 00 00
+
 c0: 00 0f 00 00 38 00 00 00 09 <span style="background-color:rgb(233,30,77)">dc</span> 14 02 01 00 00 00
+
 d0: f0 0f 00 00 04 00 00 00 00 00 00 00 09 <span style="background-color:rgb(233,30,77)">ec</span> 10 03
+
 e0: 01 00 00 00 3c 0f 00 00 04 00 00 00 09 00 10 04
+
 f0: 01 00 00 00 40 0f 00 00 50 00 00 00 00 00 00 00
 
 ```c
@@ -195,5 +212,5 @@ d0: <span style="background-color:rgb(233,30,77)">f0 0f 00 00 04 00 00 00</span>
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3ODk5OTc3MF19
+eyJoaXN0b3J5IjpbNzA1NTAzODUyLDE3Nzg5OTk3NzBdfQ==
 -->
