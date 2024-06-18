@@ -10,17 +10,11 @@ series: ["linux"]
 
 ### 使用vfio-mdev
 
-  
-
-`modprobe vfio_pci`
-
-  
+`modprobe vfio_pci`  
 
 `cd /usr/src/linux-5.10.0-60.18.0.50.x86_64/`
 
 `make modules`
-
-  
 
 `make M=usr/src/linux-5.10.0-60.18.0.50.x86_64/drivers/vfio/ -C /usr/src/linux-5.10.0-60.18.0.50.x86_64 -j10 CONFIG_VFIO_MDEV=m`
 
@@ -28,21 +22,17 @@ series: ["linux"]
 
 `insmod vfio_mdev.ko`
 
-  
-
 `make M=/home/cjs/usr/src/linux-5.10.0-60.18.0.50.x86_64/samples/vfio-mdev/ -C /home/cjs/usr/src/linux-5.10.0-60.18.0.50.x86_64 -j10 CONFIG_SAMPLE_VFIO_MDEV_MTTY=m`
-
-  
-  
 
 `echo "83b8f4f2-509f-382f-3c1e-e6bfe0fa1001" > /sys/devices/virtual/mtty/mtty/mdev_supported_types/mtty-2/create`
 
-  
-
 `qemu-kvm -machine q35,accel=kvm -cpu host -smp 8 -m 16G -drive if=none,id=root,file=./centos7.2_cn.qcow2_par -device virtio-blk-pci,drive=root,disable-legacy=on -vga std -vnc :66 -device vfio-pci,addr=05.0,sysfsdev=/sys/bus/mdev/devices/83b8f4f2-509f-382f-3c1e-e6bfe0fa1001 -daemonize`
 
+[聊聊vfio mdev工作原理 · kernelnote](https://kernelnote.com/deep-dive-vifo-mdev.html)
+
+[VFIO Part II. VFIO-mdev | tcbbd的博客](https://tcbbd.moe/linux/qemu-kvm/vfio-mdev/#more)
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MzU5NDQ3M119
+eyJoaXN0b3J5IjpbMTgwNTA2MDM0M119
 -->
