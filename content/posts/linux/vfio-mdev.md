@@ -30,17 +30,19 @@ series: ["linux"]
 
   
 
-`make M=/home/cjs/usr/src/linux-5.10.0-60.18.0.50..x86_64/samples/vfio-mdev/ -C /home/cjs/usr/src/linux-5.10.0-60.18.0.50.r1064_55.hce2.x86_64 -j10 CONFIG_SAMPLE_VFIO_MDEV_MTTY=m`
+`make M=/home/cjs/usr/src/linux-5.10.0-60.18.0.50.x86_64/samples/vfio-mdev/ -C /home/cjs/usr/src/linux-5.10.0-60.18.0.50.x86_64 -j10 CONFIG_SAMPLE_VFIO_MDEV_MTTY=m`
 
   
   
 
-echo "83b8f4f2-509f-382f-3c1e-e6bfe0fa1001" > /sys/devices/virtual/mtty/mtty/mdev_supported_types/mtty-2/create
+`echo "83b8f4f2-509f-382f-3c1e-e6bfe0fa1001" > /sys/devices/virtual/mtty/mtty/mdev_supported_types/mtty-2/create`
 
   
 
-qemu-kvm -machine q35,accel=kvm -cpu host -smp 8 -m 16G -drive if=none,id=root,file=./centos7.2_cn.qcow2_par -device virtio-blk-pci,drive=root,disable-legacy=on -vga std -vnc :66 -device vfio-pci,addr=05.0,sysfsdev=/sys/bus/mdev/devices/83b8f4f2-509f-382f-3c1e-e6bfe0fa1001 -daemonize
+`qemu-kvm -machine q35,accel=kvm -cpu host -smp 8 -m 16G -drive if=none,id=root,file=./centos7.2_cn.qcow2_par -device virtio-blk-pci,drive=root,disable-legacy=on -vga std -vnc :66 -device vfio-pci,addr=05.0,sysfsdev=/sys/bus/mdev/devices/83b8f4f2-509f-382f-3c1e-e6bfe0fa1001 -daemonize`
+
+
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5NjE2ODA0NV19
+eyJoaXN0b3J5IjpbLTE1MzU5NDQ3M119
 -->
