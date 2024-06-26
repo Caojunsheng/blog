@@ -503,7 +503,10 @@ static int vfio_dma_do_unmap(struct vfio_iommu *iommu,
 
 [VFIO Part II. VFIO-mdev | tcbbd的博客](https://tcbbd.moe/linux/qemu-kvm/vfio-mdev/#more)
 
+https://www.redhat.com/en/blog/how-deep-does-vdpa-rabbit-hole-go
+
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODQ1NDM4OTUsMTgwNTA2MDM0M119
+eyJoaXN0b3J5IjpbMTM5OTI2MDE1MiwtMTk4NDU0Mzg5NSwxOD
+A1MDYwMzQzXX0=
 -->
