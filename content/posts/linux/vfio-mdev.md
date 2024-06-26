@@ -193,7 +193,9 @@ err_put_vdev:
 	return ret;
 }
 ```
+
 设备初始化时会注册驱动到mdev_bus上。
+
 ```c
 # 注册mdev设备驱动
 int mdev_register_driver(struct mdev_driver *drv)
@@ -206,7 +208,9 @@ int mdev_register_driver(struct mdev_driver *drv)
 	return driver_register(&drv->driver);
 }
 ```
+
 在调用bus_add_driver时，主要是初始化driver_private，并将该driver挂到mdev_bus的klist_drivers上，然后创建drivers目录下相关sysfs目录
+
 ```shell
 /sys/bus/mdev/
 ├── devices
@@ -221,12 +225,15 @@ int mdev_register_driver(struct mdev_driver *drv)
 └── uevent
 
 ```
+
 去注册mdev设备驱动
 
 ```void mdev_unregister_driver(struct mdev_driver *drv);```
 
 ### 4、设备适配mdev框架
+
 mdev设备驱动需要做的事：
+
 - config space、bar region、PCIe cap
 - mmio访问
 - dma
@@ -235,18 +242,22 @@ mdev设备驱动需要做的事：
 设备除了要实现上述功能外，还需要将自身注册为虚拟设备的父设备，通过mdev_register_parent来实现。
 
 注册父设备
+
 ```
 int mdev_register_parent(struct mdev_parent *parent, struct device *dev,
 		struct mdev_driver *mdev_driver, struct mdev_type **types,
 		unsigned int nr_types);
 ```
 去注册父设备
+
 ```
 void mdev_unregister_parent(struct mdev_parent *parent);
 ```
+
 并在sysfs下给parent创建相应的目录
 
 ```
+
 /sys/devices/virtual/mtty/mtty/
 ├── 83b8f4f2-509f-382f-3c1e-e6bfe0fa1001
 │   ├── driver -> ../../../../../bus/mdev/drivers/vfio_mdev
@@ -289,7 +300,9 @@ void mdev_unregister_parent(struct mdev_parent *parent);
 └── uevent
 
 ```
+
 ### 5、如何创建可以直通给vm的mdev设备
+
 原先SRIOV场景下需要把设备从原有驱动unbind，再bind到vfio-pci驱动上，而mdev设备则是通过sysfs在用户空间创建mdev设备
 
 在执行`echo "83b8f4f2-509f-382f-3c1e-e6bfe0fa1001" > /sys/devices/virtual/mtty/mtty/mdev_supported_types/mtty-2/create`之后会执行create_store
@@ -323,7 +336,9 @@ static ssize_t create_store(struct mdev_type *mtype,
 }
 static MDEV_TYPE_ATTR_WO(create);
 ```
+
 create_store只是sysfs里面定义封装的入口，紧接着会调用真实创建设备的mdev_device_create
+
 ```c
 // echo guid到create文件之后创建mdev设备
 int mdev_device_create(struct mdev_type *type, const guid_t *uuid)
@@ -417,6 +432,7 @@ out_put_device:
 }
 
 ```
+
 创建后会一路调用到mdev_driver mtty_driver的probe，调用顺序：`mdev_device_create->device_driver_attach->__driver_probe_device->really_probe->call_driver_probe->mdev_bus_type.probe->mtty_driver.probe`
 
 ```c
@@ -433,9 +449,11 @@ static int mdev_probe(struct device *dev)
 ```
 
 mdev注册了一个模拟的iommu group，类型为VFIO_EMULATED_IOMMU
+
 mtty_probe->vfio_register_emulated_iommu_dev->__vfio_register_dev->vfio_device_set_group->vfio_noiommu_group_alloc->vfio_create_group->vfio_group_alloc->vfio_group_fops.unlocked_ioctl->vfio_group_ioctl_set_container->vfio_iommu_driver_ops_type1.vfio_iommu_type1_attach_group
 
 由于mdev设备硬件没有IOMMU能力，所以需要软件模拟IOMMU功能，参考vfio_iommu.emulated_iommu_groups实现
+
 ```c
 struct vfio_iommu {
 	struct list_head	domain_list;
@@ -487,5 +505,5 @@ static int vfio_dma_do_unmap(struct vfio_iommu *iommu,
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzMzIzNjc3MywxODA1MDYwMzQzXX0=
+eyJoaXN0b3J5IjpbLTE5ODQ1NDM4OTUsMTgwNTA2MDM0M119
 -->
