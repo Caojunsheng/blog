@@ -34,3 +34,6 @@ jobs:
           PUBLISH_DIR: ./public
           commit_message: ${{ github.event.head_commit.message }}
 
+      - name: keepalive
+        uses: efrecon/gh-action-keepalive@main
+
