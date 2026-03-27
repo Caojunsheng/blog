@@ -1,3 +1,12 @@
+---
+title: "Kubernetes Operator 完整详解"
+date: 2026-03-27T17:59:28+08:00
+description: "Kubernetes Operator 完整详解（含核心机制与全流程）"
+draft: false
+tags: ["kubernetes", "k8s", "crd", "operator"]
+categories: ["kubernetes"]
+series: ["kubernetes"]
+---
 
 # Kubernetes Operator 完整详解（含核心机制与全流程）
 
@@ -612,5 +621,5 @@ Operator 是 K8s 最核心的扩展方式，本质是**自定义的 Workload Con
 它的设计遵循 K8s 递归自治思想：内置控制器管理 Operator 本身，Operator 管理自定义业务资源，全程实现无人工干预的自动化运维，是云原生有状态应用、中间件、异构资源管理的标准方案。
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzOTUzOTEwOSw2OTAzNjg3NTVdfQ==
+eyJoaXN0b3J5IjpbLTIxNDMxNDc2ODIsNjkwMzY4NzU1XX0=
 -->
