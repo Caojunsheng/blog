@@ -10,7 +10,7 @@ on:
 # 关键：新增权限配置，确保能够自动刷新 Workflow 状态
 permissions:
   contents: write
-  workflows: write
+  actions: write
 
 jobs:
   build:
