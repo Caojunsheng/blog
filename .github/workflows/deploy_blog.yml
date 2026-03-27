@@ -1,35 +1,46 @@
 name: deploy
 
 on:
-    push:
-    workflow_dispatch:
-    schedule:
-        # Runs everyday at 8:00 AM
-        - cron: "0 0 * * *"
+  push:
+  workflow_dispatch:
+  schedule:
+    # 每天 UTC 0:00 运行 (北京时间早上 8 点)
+    - cron: "0 0 * * *"
+
+# 关键：新增权限配置，确保能够自动刷新 Workflow 状态
+permissions:
+  contents: write
+  workflows: write
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-              with:
-                  submodules: true
-                  fetch-depth: 0
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
 
-            - name: Setup Hugo
-              uses: peaceiris/actions-hugo@v3
-              with:
-                hugo-version: '0.119.0'
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.119.0'
 
-            - name: Build Web
-              run: hugo
+      - name: Build Web
+        run: hugo
 
-            - name: Deploy Web
-              uses: peaceiris/actions-gh-pages@v3
-              with:
-                  PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-                  EXTERNAL_REPOSITORY: Caojunsheng/Caojunsheng.github.io
-                  PUBLISH_BRANCH: master
-                  PUBLISH_DIR: ./public
-                  commit_message: ${{ github.event.head_commit.message }}
+      - name: Deploy Web
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          EXTERNAL_REPOSITORY: Caojunsheng/Caojunsheng.github.io
+          PUBLISH_BRANCH: master
+          PUBLISH_DIR: ./public
+          commit_message: ${{ github.event.head_commit.message }}
+
+      # --- 新增步骤：防止定时任务被 GitHub 关停 ---
+      - name: Keepalive Workflow
+        uses: gautamkrishnar/keepalive-workflow@v2
+        with:
+          use_api: true # 开启 API 模式，这种方式最干净，不会给你的仓库增加无意义的 commit
