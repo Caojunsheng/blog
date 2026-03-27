@@ -1,16 +1,26 @@
 <!-- mermaid.html -->
-<script type="module">  
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'; 
-    mermaid.initialize({ startOnLoad: true });  
-</script>  
-<script>  
-    // Replace mermaid pre.code to div  
-    Array.from(document.getElementsByClassName("language-mermaid")).forEach(  
-        (el) => {  
-            el.parentElement.outerHTML = `<div class="mermaid">${el.innerHTML}</div>`;  
-        }  
-    );  
-</script>  
+<script type="module">
+    // 等待页面DOM完全加载完成
+    document.addEventListener('DOMContentLoaded', async () => {
+        // 1. 转换所有 mermaid 代码块为标准格式
+        document.querySelectorAll('code.language-mermaid').forEach(el => {
+            const pre = el.closest('pre');
+            // 创建 mermaid 容器
+            const mermaidDiv = document.createElement('div');
+            mermaidDiv.className = 'mermaid';
+            mermaidDiv.textContent = el.textContent;
+            // 替换原代码块
+            pre.parentNode.replaceChild(mermaidDiv, pre);
+        });
+
+        // 2. 加载并初始化 Mermaid
+        const mermaid = await import('https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs');
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default'
+        });
+    });
+</script>
 <style>  
     /* Set svg to center */  
     .mermaid svg {  
