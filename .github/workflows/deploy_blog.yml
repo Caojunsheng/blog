@@ -34,8 +34,3 @@ jobs:
           PUBLISH_DIR: ./public
           commit_message: ${{ github.event.head_commit.message }}
 
-      # --- 新增步骤：防止定时任务被 GitHub 关停 ---
-      - name: Keepalive Workflow
-        uses: gautamkrishnar/keepalive-workflow@v2
-        with:
-          use_api: true # 开启 API 模式，这种方式最干净，不会给你的仓库增加无意义的 commit
