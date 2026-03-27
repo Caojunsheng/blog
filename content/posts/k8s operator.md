@@ -1,4 +1,12 @@
-
+---
+title: "Kubernetes Operator 完整详解"
+date: 2026-03-27T17:59:28+08:00
+description: "Kubernetes Operator 完整详解（含核心机制与全流程）"
+draft: false
+tags: ["kubernetes", "k8s", "crd", "operator"]
+categories: ["kubernetes"]
+series: ["virtualization"]
+---
 # Kubernetes Operator 完整详解（含核心机制与全流程）
 
   
@@ -1219,5 +1227,5 @@ Operator 是 K8s 最核心的扩展方式，本质是**自定义的 Workload Con
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjkwMzY4NzU1XX0=
+eyJoaXN0b3J5IjpbLTE3Njk1Nzg4NjUsNjkwMzY4NzU1XX0=
 -->
